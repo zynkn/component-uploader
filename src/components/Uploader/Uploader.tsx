@@ -1,6 +1,6 @@
 import React from 'react';
 import './Uploader.scss';
-import { Icon, Button, Upload } from "antd";
+import { Icon, Progress } from "antd";
 
 const Uploader = () => {
   return (
@@ -16,6 +16,22 @@ const Uploader = () => {
       </div>
       <div className="pane">
         <div className="UploadList">
+          <div className="ListItem">
+            <Progress type="circle" percent={30} width={40} />
+            <div className="description">
+              <span className="filename">sponsor-packages.pdf</span>
+              <span className="filesize">1.34 MB / 1.34 MB</span>
+            </div>
+            <Icon type="close-circle" theme="filled" style={{ fontSize: '20px', color: '#d0d0d0' }} />
+          </div>
+          <div className="ListItem">
+            <Progress type="circle" percent={100} width={40} />
+            <div className="description">
+              <span className="filename">sponsor-packages.pdf</span>
+              <span className="filesize">1.34 MB / 1.34 MB</span>
+            </div>
+            <Icon type="check-circle" theme="filled" style={{ fontSize: '20px', color: '#1890ff' }} />
+          </div>
 
         </div>
       </div>
