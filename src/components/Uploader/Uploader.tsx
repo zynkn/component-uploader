@@ -1,8 +1,18 @@
 import React from 'react';
 import './Uploader.scss';
 import { Icon, Progress } from "antd";
+import { useDispatch } from 'react-redux';
+import { PUT_IMAGE } from 'stores/modules/upload';
 
 const Uploader = () => {
+  const dispatch = useDispatch();
+  const fileRef = React.useRef(null);
+
+  const handleUpload = (e: any) => {
+    console.log(e.target.files);
+    dispatch({ type: PUT_IMAGE, payload: { file: e.target.files[0] } });
+  }
+
   return (
     <div className="Uploader">
       <div className="pane">
@@ -11,7 +21,7 @@ const Uploader = () => {
         <p style={{ color: '#bdbfc3', fontSize: '14pt', margin: '0' }}>or</p>
         <div className="Upload-button" style={{ marginTop: '16px' }}>
           <label htmlFor="upload">Browse</label>
-          <input type="file" id="upload" />
+          <input type="file" ref={fileRef} id="upload" onChange={handleUpload} />
         </div>
       </div>
       <div className="pane">
